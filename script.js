@@ -21,6 +21,20 @@ document.addEventListener("DOMContentLoaded", () => {
     const anchor = mindarThree.addAnchor(0);
     anchor.group.add(robot.scene);
 
+    const mixer = new THREE.AnimationMixer(robot.scene);
+
+    const idleAction = mixer.clipAction(robot.animations[2]);
+    const jumpAction = mixer.clipAction(robot.animations[3]);
+    const dieAction = mixer.clipAction(robot.animations[1]);
+    const thumbsUpAction = mixer.clipAction(robot.animations[9]);
+    const waveAction = mixer.clipAction(robot.animations[12]);
+    thumbsUpAction.loop = THREE.LoopOnce;
+    waveAction.loop = THREE.LoopOnce;
+    jumpAction.loop = THREE.LoopOnce;
+    dieAction.loop = THREE.LoopOnce;
+
+    const model = await handpose.load();
+
     
   };
   start();
