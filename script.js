@@ -18,6 +18,9 @@ document.addEventListener("DOMContentLoaded", () => {
     robot.scene.scale.set(0.2, 0.2, 0.2);
     robot.scene.position.set(0, -0.2, 0);
 
+    const anchor = mindarThree.addAnchor(0);
+    anchor.group.add(robot.scene);
+
     
   };
   start();
