@@ -35,6 +35,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const model = await handpose.load();
 
+    const waveGesture = new fp.GestureDescription("wave");
+    for (let finger of [
+      fp.Finger.Thumb,
+      fp.Finger.Index,
+      fp.Finger.Middle,
+      fp.Finger.Ring,
+      fp.Finger.Pinky,
+    ]) {
+      waveGesture.addCurl(finger, fp.FingerCurl.NoCurl, 1.0);
+      waveGesture.addDirection(finger, fp.FingerDirection.VerticalUp, 1.0);
+    }
+
     
   };
   start();
